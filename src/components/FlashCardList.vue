@@ -14,6 +14,13 @@ const filteredTriviaData = computed(() => {
     return triviaData.value.filter((each) => each.difficulty === currentDifficulty.value)
   } else return triviaData.value
 })
+
+const hideAllAnswers = () => {
+  triviaData.value = triviaData.value.map((each) => ({
+    ...each,
+    answerShown: false
+  }))
+}
 </script>
 
 <template>
@@ -21,6 +28,7 @@ const filteredTriviaData = computed(() => {
     <div>
       <SelectDifficulty @difficulty="setDifficulty" />
     </div>
+    <button @click="hideAllAnswers">Flip All</button>
     <div class="columns is-multiline mt-5">
       <div v-for="eachTriviaData in filteredTriviaData" :key="eachTriviaData.question">
         <FlashCard
