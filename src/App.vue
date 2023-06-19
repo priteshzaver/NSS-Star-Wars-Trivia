@@ -1,7 +1,12 @@
-<script setup></script>
+<script setup>
+import FlashCardList from './components/FlashCardList.vue'
+</script>
 
 <template>
-  <div>Star Wars Trivia</div>
+  <h1>Star Wars Trivia</h1>
+  <div>
+    <FlashCardList />
+  </div>
 </template>
 
 <style scoped></style>
